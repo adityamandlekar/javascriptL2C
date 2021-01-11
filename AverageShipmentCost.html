@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		 <style>
+				#header {
+				    border: 1px solid lightgrey;
+				    margin : -8px -8px 0;
+				    background-color: lightgrey;
+				 }
+                #message {
+                    position: absolute;
+                    top: 40%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                .column {
+                    float: left;
+                    width: 33.33%;
+                    transform:translateY(0%);
+                }
+                .columnlabel {
+                    float: left;
+                    width: 33.33%;
+                    transform:translateY(175%);
+                }
+
+                    /* Clear floats after image containers */
+                .row::after {
+                    content: "";
+                    clear: both;
+                    display: table;
+                }
+                div {
+                    margin-top: 10px;  
+                    position:relative;
+                        
+                }       
+                .center {
+                    text-align:center;
+                }         
+		</style>
+		
+</head>
+    
+<body>
+    <div id="header">
+        <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:20%">
+                    <span>
+                        <img align="left" src="logo.jpeg" width="120px" height="120px">
+                    </span>
+                </td>    
+                <td style="width: 60%;">
+                    <span>
+                        <center>
+                            <h1>DATAX Shipping Company</h1>
+                        </center>
+                    </span>
+                </td>
+                <td style="width: 40%; padding-bottom: 7%;padding-left:5%;">
+                    <span>
+                        <a href="#" id="signup">Sign up</a>
+                        <a href="#" id="login" style="padding-left:30px">Log in</a>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    
+    </div>
+    
+    <div id="message" >
+        <div><h2>Average Shipment Cost Calculation</h2></div>    
+        <div class="row">
+            <div class="columnlabel">
+                <label for="itemCost">Shipping item cost</label>
+            </div>
+            <div class="column">
+                <textarea name="itemCost" cols="40" rows="5" id="itemCost"></textarea>
+            </div>
+        </div>
+        <div class="center">
+                <input type="button" id="calculate" value="Calculate" onclick="myFunction()" />
+        </div>
+        <div>
+            <label for="result">Average shipment cost</label>
+            <input type="text" id="result" />
+        </div>              
+    </div>
+    <script type="text/javascript">
+        function myFunction() {
+            var str = document.getElementById("itemCost").value;
+            console.log (str);
+            var res = str.split(" ");
+            res = res.filter(e => e);
+            console.log (res);
+            var sum = 0;
+            for (var x = 0; x < res.length; x++)
+                sum += parseInt(res[x]);
+            console.log ("sum = " + sum);
+            var avg = (parseFloat(sum/res.length)).toFixed(1);
+            console.log ("avg = " + avg);
+            document.getElementById("result").value = avg;
+        }
+    </script>
+    </body>
+</html>
