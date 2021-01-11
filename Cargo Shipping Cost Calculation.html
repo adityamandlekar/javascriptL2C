@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		 <style>
+				#header {
+				    border: 1px solid lightgrey;
+				    margin : -8px -8px 0;
+				    background-color: lightgrey;
+				 }
+                 #message {
+                    position: absolute;
+                    top: 40%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                label.aligning>span {
+                    display: inline-block;
+                    min-width: 150px;
+                    padding-right: 120px;
+                }
+                label.aligning {
+                    padding-right: 20px;
+                }
+                div {
+                    margin-bottom: 15px; 
+                }
+                #result {
+                    margin-top: 15px; 
+                }
+
+            
+		</style>
+</head>
+    
+<body>
+    <div id="header">
+        <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:20%">
+                    <span>
+                        <img align="left" src="logo.jpeg" width="120px" height="120px">
+                    </span>
+                </td>    
+                <td style="width: 60%;">
+                    <span>
+                        <center>
+                            <h1>DATAX Shipping Company</h1>
+                        </center>
+                    </span>
+                </td>
+                <td style="width: 40%; padding-bottom: 7%;padding-left:5%;">
+                    <span>
+                        <a href="#" id="signup">Sign up</a>
+                        <a href="#" id="login" style="padding-left:30px">Log in</a>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div id="message">
+        <center>
+            <h2>Cargo Shipping Cost Calculation</h2>
+        </center>
+        <div>
+            <label for="weight" class="aligning"><span>Weight(in kg)</span>:</label>
+            <input type="text" id="weight"> 
+        </div>
+        <div>   
+            <label class="aligning" for="choice"><span>Transport Mode</span>:</label>
+            <input type="radio" name="choice" id="air" value="Air" checked >Air
+            <input type="radio" name="choice" id="road" value="Road"  >Road
+            <input type="radio" name="choice" id="ship" value="Ship" >Ship
+        </div>
+        <div>
+            <label for="premium" class="aligning"><span>Premium Customer</span>:</label>
+            <input type="checkbox" id="premium">
+         </div>
+        <div>
+            <center>
+                <input id="calculate" type="button" value="calculate" onclick="myFunction()" />
+                <div id="result"></div>
+            </center>
+        </div>      
+    </div>   
+     
+    <script>    
+    
+      function myFunction() {
+        
+         var shippingcostrate;
+         var totalcost;
+            document.getElementById("result").innerHTML = "Dear Customer, your total shipping cost is $";
+                 
+            var weight = document.getElementById('weight').value;
+            const rbs = document.querySelectorAll('input[name="choice"]');
+            let selectedValue;
+            var radios = document.getElementsByName("choice");
+
+                for (var i = 0, length = radios.length; i < length; i++) {
+                      if (radios[i].checked) {
+                        // do whatever you want with the checked radio
+                        selectedValue = radios[i].value;
+                        break;
+                      }
+                }
+                console.log ("selectedValue = " + selectedValue);
+                  if(selectedValue=="Air")
+                        shippingcostrate=1;
+                  if(selectedValue=="Road")
+                        shippingcostrate=0.5;
+                  if(selectedValue=="Ship")
+                        shippingcostrate=0.7;
+                        console.log ("shippingcostrate = " + shippingcostrate);
+                        console.log ("weight = " + weight);
+
+                totalcost = shippingcostrate * weight;
+                console.log ("totalcost = " + totalcost);
+                cb = document.getElementById("premium");
+                if(cb.checked)
+                {
+                   totalcost = totalcost - totalcost*0.12;
+                   console.log ("totalcost = " + totalcost);
+                }
+            document.getElementById("result").innerHTML += totalcost;
+        }
+
+      </script>
+
+ 
+    </body>
+
+</html>
