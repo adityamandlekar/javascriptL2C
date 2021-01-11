@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		 <style>
+				#header {
+				    border: 1px solid lightgrey;
+				    margin : -8px -8px 0;
+				    background-color: lightgrey;
+				 }
+		</style>
+</head>
+    
+<body>
+    <div id="header">
+        <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:20%">
+                    <span>
+                        <img align="left" src="logo.jpeg" width="120px" height="120px">
+                    </span>
+                </td>    
+                <td style="width: 60%;">
+                    <span>
+                        <center>
+                            <h1>DATAX Shipping Company</h1>
+                        </center>
+                    </span>
+                </td>
+                <td style="width: 40%; padding-bottom: 7%;padding-left:5%;">
+                    <span>
+                        <a href="#" id="signup">Sign up</a>
+                        <a href="#" id="login" style="padding-left:30px">Log in</a>
+                    </span>
+                </td>
+            </tr>
+        </table>
+</div>			
+		<div id="calcbody">
+		    
+		    <h3>Calculation of Shipping Charge</h3>
+		    <label text="Total Product Weight">
+		        <input type="text" id="weight" value="5">
+		    </label>
+		    <label text="Shipping cost (per kg)">
+		        <input type="text" id="cost" value="6">
+		    </label>
+		    
+		     <p id="result">The total Shipment charge is </p>
+		      <!--<button type="button" onclick='document.getElementById("demo").innerHTML = myFunction()"'>compute</button> -->
+		      
+		    <input type="button" id="compute" value="compute" onclick="myFunction()" />
+		    <script>
+            function myFunction() {
+               document.getElementById("result").innerHTML ="The total Shipment charge is ";
+               var weight= document.getElementById("weight").value;
+               var cost= document.getElementById("cost").value;
+               var total = parseInt(weight) * parseInt(cost);
+               
+               document.getElementById("result").innerHTML+=total;
+            }
+            </script>
+
+		</div>
+			
+    </body>
+
+</html>
+
+
+
+Javascript - L2C . 
+
+
+
+I have 3 Types of Problems where its not accepting solution ,neighther it shows where I should correct. I believe this is teckstac technical issue . Please help me correct my understanding by correcting me or help me acccept the solution . I am genuinly working to upskill for this.
+
+Issue -1 : Doesnt show any error but not accepting solution. 
+
+1. Average cost of the ShipmentCoding exercise
+2. Cargo Shipping Cost CalculationCoding exercise
+
+
+
+
+
+Completed: Carrier Schedule Generator (did not achieve pass grade)
+Completed: Cargo Shipping Cost Calculation (did not achieve pass grade)
+Completed: Display Shipping Details (did not achieve pass grade)
+Completed: Average cost of the Shipment (did not achieve pass grade)
