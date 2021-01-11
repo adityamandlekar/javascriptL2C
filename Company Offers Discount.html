@@ -1,0 +1,87 @@
+<html>
+	<head>
+	<style>
+		#header {
+			border: 1px solid lightgrey;
+			margin : -8px -8px 0;
+			background-color: lightgrey;
+		}
+		#message {
+						position: absolute;
+						top: 40%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+					}
+		label.aligning>span {
+			display: inline-block;
+			min-width: 180px;
+		}
+
+		div {
+			margin-bottom: 15px; 
+		}
+		#result {
+			margin-top: 15px; 
+		}
+    </style>
+	<div id="header">
+			<table style="width:100%">
+				<tr style="width:100%">
+					<td style="width:20%">
+						<span>
+							<img align="left" src="logo.jpeg" width="120px" height="120px">
+						</span>
+					</td>    
+					<td style="width: 60%;">
+						<span>
+							<center>
+								<h1>DATAX Shipping Company</h1>
+							</center>
+						</span>
+					</td>
+					<td style="width: 40%; padding-bottom: 7%;padding-left:5%;">
+						<span>
+							<a href="#" id="signup">Sign up</a>
+							<a href="#" id="login" style="padding-left:30px">Log in</a>
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</head>
+
+<body>
+	<div id="message">
+
+		<center>
+		<h2>Company Offers Discount</h2>
+		</center>
+		<div>
+				<label for="weight" class="aligning"><span>Enter the weight of the item</span></label>
+				<input type="text" id="weight" value="" />
+		</div>
+		<div>
+				<label for="distance" class="aligning"><span>Enter the distance</span></label>
+				<input type="text" id="distance" value="" />       
+		</div>
+			<center>	
+				<input type="button" id="submit" value="Submit" onclick="reload()" />
+				<div id="result"></div>	
+			</center>
+		</div>
+		<script>      
+		
+			function reload()
+			{
+				document.getElementById("result").innerHTML="";
+				
+				if (document.getElementById("weight").value < 100 &&  document.getElementById("distance").value < 500)
+				
+					document.getElementById("result").innerHTML ="Datax shipping offers no discount";
+				else
+					document.getElementById("result").innerHTML ="Datax shipping company offers discount";
+			}
+			
+		</script>
+	</body>
+</html>
