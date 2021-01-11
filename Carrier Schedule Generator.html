@@ -1,0 +1,108 @@
+<html>
+    <head>
+	 
+<style>
+   #header {
+        border: 1px solid lightgrey;
+        margin : -8px -8px 0;
+        background-color: lightgrey;
+     }
+
+     textarea {
+        overflow-y: scroll;
+        height: 100px;
+    }
+	
+</style>
+	
+</head>
+    
+<body>
+   <div id="header">
+            <table style="width:100%">
+                <tr style="width:100%">
+                    <td style="width:20%">
+                        <span>
+                            <img align="left" src="logo.jpeg" width="120px" height="120px">
+                        </span>
+                    </td>    
+                    <td style="width: 60%;">
+                        <span>
+                            <center>
+                                <h1>DATAX Shipping Company</h1>
+                            </center>
+                        </span>
+                    </td>
+                    <td style="width: 40%; padding-bottom: 7%;padding-left:5%;">
+                        <span>
+                            <a href="#" id="signup">Sign up</a>
+                            <a href="#" id="login" style="padding-left:30px">Log in</a>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+    </div>
+    <div id="mainBody">
+        <div>
+            <h2>Carrier Schedule Generator</h2>
+        </div>
+        <div>
+            <label for="startDate">Start date(MM/dd/yyyy)</label>
+            <input type="date" id="date" placeholder="MM/dd/yyyy" value=""/>
+            <input type="button" id="generate" value="Generate" onclick="myFunction()"/>
+        </div>
+        <div> 
+            <label for="carrierScheduler">Carrier schedule for the corresponding year(dd/MM/yyyy)</label>
+              <textarea id="scheduleDate" height="1500px" width="400px" this.value=''></textarea>
+        </div>  
+    </div>
+    
+    <script>
+        function myFunction(){
+            
+           document.getElementById("scheduleDate").value = '';        
+           var startDateval=new Date(document.getElementById("date").value);
+           console.log(startDateval.toString());  
+
+           var yearval=startDateval.getFullYear();
+           console.log(yearval.toString());  
+           var enddate="12/31/"+ yearval.toString();
+           var endDateval=new Date(enddate);
+           console.log(endDateval);
+           var nextdate = new Date();
+        
+           Date.prototype.addDays = function(days) {
+                    var date = new Date(this.valueOf());
+                    date.setDate(date.getDate() + days);
+                   return date;
+            }
+
+             nextdate = nextdate.addDays(15);
+           
+              var weekday = nextdate.getDay();
+           
+               if (weekday==6)
+                  nextdate = nextdate.addDays(2);
+               if (weekday==0)
+                  nextdate = nextdate.addDays(1);
+
+           let datelist="";
+           console.log(nextdate);
+           while(nextdate <= endDateval)
+           {
+               let nextmonth = nextdate.getMonth() + 1;
+               let DateCreated = nextdate.getDate() + "/" + nextmonth + "/" + nextdate.getFullYear();
+               console.log(nextdate);
+               datelist+=DateCreated.toString() +"\n";
+               nextdate = nextdate.addDays(15);
+               if (weekday==6)
+                        nextdate = nextdate.addDays(2);
+               if (weekday==0)
+                       nextdate = nextdate.addDays(1);
+           }
+            document.getElementById("scheduleDate").value = datelist;
+        }
+     </script>
+     
+    </body>
+	</html>
