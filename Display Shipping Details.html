@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		 <style>
+				#header {
+				    border: 1px solid lightgrey;
+				    margin : -8px -8px 0;
+				    background-color: lightgrey;
+				 }
+                label.aligning>span {
+                    display: inline-block;
+                    min-width: 180px;
+                    padding-right: 10px;
+                }
+                label.aligning1>span {
+                    display: inline-block;
+                    min-width: 180px;
+                    padding-right: 10px;
+                    transform:translateY(-90%);
+                }                
+
+                div {
+                    margin-bottom: 15px; 
+                }
+
+		</style>
+		
+</head>
+    
+<body>
+    <div id="header">
+        <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:20%">
+                    <span>
+                        <img align="left" src="logo.jpeg" width="120px" height="120px">
+                    </span>
+                </td>    
+                <td style="width: 60%;">
+                    <span>
+                        <center>
+                            <h1>DATAX Shipping Company</h1>
+                        </center>
+                    </span>
+                </td>
+                <td style="width: 40%; padding-bottom: 7%;padding-left:5%;">
+                    <span>
+                        <a href="#" id="signup">Sign up</a>
+                        <a href="#" id="login" style="padding-left:30px">Log in</a>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div  id="message">       
+        <center>
+            <div><h2>Shipping Details</h2></div>   
+        </center>
+        <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:60%; padding-left:15%;" >
+                    <span>
+                        <div>        
+                            <label for="source" class="aligning1"><span>Source Address</span>
+                                <textarea name="sourcename" id="source"></textarea>
+                            </label>
+                        </div>
+                        <div>
+                            <label for="source" class="aligning1"><span>Destination Address</span>            
+                                <textarea name="destinationname" id="destination"></textarea>
+                            </label>
+                        </div>   
+                        <div>
+                            <label for="weight" class="aligning"><span>Total Product Weight</span>
+                                <input type="text" id="weight" />
+                            </label>
+                        </div>   
+                        <div>
+                            <label for="cost" class="aligning"><span>Cost(per kg)</span>
+                                <input type="text" id="cost"/>
+                            </label>
+                        </div>
+                        <div>
+                            <label for="date" class="aligning"><span>Shipping Date</span>
+                                <input type="text" id="date" placeholder="MM/dd/yyyy"/>
+                            </label>
+                        </div>
+                        <div>
+                            <label for="delivery" class="aligning"><span>Express Delivery</span>
+                                <input type="checkbox" id="delivery" checked />
+                            </label>
+                        </div>  
+                        
+                        <div>
+                            <center>
+                            <input type="button" value ="calculate" id="calculate" onclick="myFunction()"/>
+                            </center>
+                        </div>  
+                    </span>
+                </td>
+                <td style="width: 40%;padding-left:5%;"> 
+                    <span>
+                        <div id="result">    </div> 
+                    </span>
+                </td>  
+            </tr> 
+        </table>
+    </div>     
+    <script>
+        var totalinclusive=0;
+        var totalinclusivestr = "";
+        var total;
+        var weight;
+        var cost;
+        var cb;
+        var  months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        
+        function myFunction() {
+        
+        document.getElementById("result").innerHTML ="Shipping Details";
+
+        
+        var sourceAddress = "From : " + document.getElementById("source").value;
+        var destinationAddress ="To : " + document.getElementById("destination").value;
+        
+        weight= document.getElementById("weight").value;
+        cost= document.getElementById("cost").value;
+        total = parseInt(weight) * parseInt(cost);
+        var cb = document.getElementById('delivery');
+        console.log(cb.checked);
+        if (cb.checked)
+        {
+    
+                totalinclusive = total + parseInt(weight);
+
+        }
+        else
+        {
+                totalinclusive = total + (0.25 * parseInt(weight));
+                
+        }
+        
+                    totalinclusivestr="Shipping Cost : $" + totalinclusive;
+                        var dateinput = document.getElementById('date').value;
+                        var datearray = dateinput.split("/");
+                        var date=new Date(parseInt(datearray[2]),parseInt(datearray[0])-1,parseInt(datearray[1]));
+
+                        
+                        //var date = new Date(date1);
+                        var day = date.getDate();
+                        var month = date.getMonth() + 1;
+                        var monthName=months[date.getMonth()];
+                        var year = date.getFullYear();
+                        var newdatestr;
+                        if (day < 10)
+                            newdatestr = monthName + "  0" + day + " " + year;
+                        else 
+                            newdatestr = monthName + " " + day + " " + year;
+            
+                        var displayDate = "Shipping Date : " + newdatestr;
+                
+                    document.getElementById("result").innerHTML+= sourceAddress + destinationAddress+ totalinclusivestr+displayDate;
+
+        }
+     </script>
+
+
+
+	
+
+
+
+    </body>
+
+</html>
