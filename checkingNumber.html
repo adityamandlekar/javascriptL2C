@@ -1,0 +1,56 @@
+
+<html>
+    <head>
+    <script src ="script.js"></script>
+     <style>
+       #header {
+               border: 1px solid lightgrey;
+               margin : -8px -8px 0;
+               background-color: lightgrey;
+            }
+       </style>
+    </head>
+      <body>
+          <div id="header">
+                   <table style="width:100%">
+                       <tr style="width:100%">
+                           <td style="width:20%">
+                               <span>
+                                   <img align="left" src="logo.jpeg" width="120px" height="120px">
+                               </span>
+                           </td>    
+                           <td style="width: 60%;">
+                               <span>
+                                   <center>
+                                       <h1>DATAX Shipping Company</h1>
+                                   </center>
+                               </span>
+                           </td>
+                           <td style="width: 40%; padding-bottom: 7%;padding-left:5%;">
+                               <span>
+                                   <a href="#" id="signup">Sign up</a>
+                                   <a href="#" id="login" style="padding-left:30px">Log in</a>
+                               </span>
+                           </td>
+                       </tr>
+                   </table>
+   </div>
+   <div>
+   <center>
+   <h2>Checking Number</h2>
+   <table>
+   <tr>
+   <td> Enter the input</td>
+   <td> <textarea id="input"></textarea></td>
+   </tr>
+   <tr>
+   <td colspan="3" align= "center">
+   <button type ="button" id="check" onclick="check()"> Check</button>
+   </td>
+   </tr>
+   </table>
+   </center>
+   </div>
+   <div id="result"></div> 
+            </body>
+       </html>
