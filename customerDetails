@@ -1,0 +1,33 @@
+<html>
+<head>
+<script src="script.js" type="text/javascript"> </script>
+</head>
+<body> 
+<!-- Fill code here -->
+<h2 align="center">Customer Details</h2>
+<table>
+<tr>
+<td>Customer Name</td>
+<td><input type="text" id="name"></td>
+</tr>
+<tr>
+<td>Address</td>
+<td><textarea id="address" rows="10" columns="20"></textarea></td>
+</tr>
+<tr>
+<td>Phone Number</td>
+<td><input type="text" id="number"></td>
+</tr>
+<tr>
+
+<td><input type="submit" id="display" value="Display" onclick="display()"></td>
+</tr>
+
+
+</table>
+<div id="result">
+
+</div>
+
+</body>
+</html>
