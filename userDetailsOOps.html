@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript" src="script.js"></script>
+<div align="center">
+<h2>User Details</h2>
+<table>
+
+<tr>
+<td>Name<font color="red">*</font></td>
+<td><input type="text" id="name"></td>
+<td><div id="nameWarning" style="color: red"></div></td>
+</tr>
+<tr>
+<td>Address</td>
+<td><textarea id="address"></textarea></td>
+</tr>
+<tr>
+<td>Mobile Number<font color="red">*</font></td>
+<td><input type="text" id="mobile"></td>
+<td><div id="mobileWarning" style="color: red"></div></td>
+</tr>
+<tr>
+<td>E-mail Id<font color="red">*</font></td>
+<td><input type="text" id="email"></td>
+<td><div id="emailWarning" style="color: red"></div></td>
+</tr>
+<tr>
+<td></td>
+<td><button id="submit" onclick="validate()">Submit</button></td>
+</tr>
+</table>
+</div>
+<div id="result" align="center"></div>
+</body>
+</html>
