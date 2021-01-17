@@ -1,0 +1,116 @@
+<html>
+    <head>
+	 
+<style>
+   #header {
+        border: 1px solid lightgrey;
+        margin : -8px -8px 0;
+        background-color: lightgrey;
+     }
+	
+	
+   
+       
+</style>
+	
+</head>
+    
+<body>
+   <div id="header">
+            <table style="width:100%">
+                <tr style="width:100%">
+                    <td style="width:20%">
+                        <span>
+                            <img align="left" src="logo.jpeg" width="120px" height="120px">
+                        </span>
+                    </td>    
+                    <td style="width: 60%;">
+                        <span>
+                            <center>
+                                <h1>DATAX Shipping Company</h1>
+                            </center>
+                        </span>
+                    </td>
+                    <td style="width: 40%; padding-bottom: 7%;padding-left:5%;">
+                        <span>
+                            <a href="#" id="signup">Sign up</a>
+                            <a href="#" id="login" style="padding-left:30px">Log in</a>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+		<div>
+            <center>
+                <h2>Multiple Currency Converter</h2>
+            </center>
+            <div>
+            <label for="currencySelection">Select the Converstion Type
+                <select name="currency" id="currency" onchange="clearInput()">
+                    <option value="USD - INR">USD - INR</option>
+                    <option value="INR - USD">INR - USD</option>
+                    <option value="EUR - INR">EUR - INR</option>
+                    <option value="INR - EUR">INR - EUR</option>
+                  </select>
+            </div>
+            <br/>
+            <div>
+            <label for="amount">Enter the value
+                <input type="text" id="convertval" value="">
+                <input type="button" id="convert" value="Convert" onClick="currencyConversion()">
+            </label>
+            </div>
+            <br/>
+            <div>
+            <label for="convertedAmount" id="convertedVal">Equivalent Amount
+                <input type="text" id="amount" value="">
+            </label>
+           </div>
+        </div>
+        <script>
+            function currencyConversion()
+            {
+               const usdToInd = 62.04;
+               const indToUsd = 0.016;
+               const eurToInr = 72.01;
+               const inrToEur = 0.013;
+
+               let convertedVal;
+               
+               let conversionVal = document.getElementById("convertval").value;
+               let selectedOption = document.getElementById("currency").value;
+
+               if(selectedOption=="USD - INR" && conversionVal!="")
+               { 
+                    convertedVal= parseFloat(conversionVal) * usdToInd;
+               }
+               if(selectedOption=="INR - USD" && conversionVal!="")
+               {
+                  convertedVal= parseFloat(conversionVal) * indToUsd;
+               }
+               if(selectedOption=="EUR - INR" && conversionVal!="")   
+                  {
+                    convertedVal= parseFloat(conversionVal) * eurToInr;
+                  } 
+
+               if(selectedOption=="INR - EUR" && conversionVal!="")
+               {
+                  convertedVal= parseFloat(conversionVal) * inrToEur;
+               }
+
+               if (conversionVal=="")
+                    document.getElementById("amount").value="";
+               else
+                    document.getElementById("amount").value=parseFloat(convertedVal).toFixed(2);
+            }
+
+            function clearInput()
+            {
+                document.getElementById("amount").value="";
+                document.getElementById("convertval").value="";
+            }
+
+        </script>
+    </body>
+	</html>
+    
