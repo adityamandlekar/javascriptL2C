@@ -1,0 +1,94 @@
+<html>
+    <head>
+	 
+<style>
+   #header {
+        border: 1px solid lightgrey;
+        margin : -8px -8px 0;
+        background-color: lightgrey;
+     }
+	
+	
+   
+       
+</style>
+	
+</head>
+    
+<body>
+   <div id="header">
+            <table style="width:100%">
+                <tr style="width:100%">
+                    <td style="width:20%">
+                        <span>
+                            <img align="left" src="logo.jpeg" width="120px" height="120px">
+                        </span>
+                    </td>    
+                    <td style="width: 60%;">
+                        <span>
+                            <center>
+                                <h1>DATAX Shipping Company</h1>
+                            </center>
+                        </span>
+                    </td>
+                    <td style="width: 40%; padding-bottom: 7%;padding-left:5%;">
+                        <span>
+                            <a href="#" id="signup">Sign up</a>
+                            <a href="#" id="login" style="padding-left:30px">Log in</a>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+		<div>
+            <center>
+                <h2>
+                    Asset ID Ending With 5
+                </h2>
+            </center>
+                <div>
+                    <label for="inputValue">Enter the asset Id
+                        <textarea id="asset" rows="5" cols="25"></textarea>
+                    </label>
+                </div>
+                <div>
+                        <input type="button" id="compute" value="Compute" onClick="assetEndingIn5()"/>
+                </div>
+                <div id="result">
+
+                </div>
+        </div>
+
+            <script>
+                
+                function assetEndingIn5()
+                {
+                     let assetendingin5list=[];
+                     const assetlist=document.getElementById("asset").value;
+                     let assetarr= assetlist.split(",");
+                     for (let i=0 ;i < assetarr.length; i++)
+                     {
+                        let assetid=assetarr[i];
+                        let lastchar= assetid[assetid.length-1];
+                        if (parseInt(lastchar)==5)
+                        {
+                           
+                            assetendingin5list.push(assetid);
+                        }
+                     }
+
+                     document.getElementById("result").innerHTML="Asset id ending with 5 are ";
+                     for (let j=0; j < assetendingin5list.length; j++)
+                     {
+                        document.getElementById("result").innerHTML+=assetendingin5list[j] ;
+                        if( j < assetendingin5list.length-1)
+                        {
+                            document.getElementById("result").innerHTML+=",";
+                        } 
+                     }
+                     
+                }
+            </script>
+                </body>
+	</html>
+    
